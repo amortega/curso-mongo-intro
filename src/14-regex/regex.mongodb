@@ -1,0 +1,10 @@
+use("platzi_store")
+
+// db.inventory.find({ "item.description": "Single line description." })
+// db.inventory.find({ "item.description": { $regex: /line/ } })
+// db.inventory.find({ "item.description": { $regex: /LINE/i } }) -- "i" No sensitvo a mayúsculas y miniscúlas
+// db.inventory.find({ "item.description": { $regex: /line$/i } }) -- "$" busca la palabra line al final del texto
+// db.inventory.find({ "item.description": { $regex: /^single/i } }) -- Busca la palabra "single" al inicio del texto
+
+// "m" busqueda multilínea, hace que si encuentra un /n de igual forma continue buscando en el resto del texto
+db.inventory.find({ "item.description": { $regex: /^s/im } })
